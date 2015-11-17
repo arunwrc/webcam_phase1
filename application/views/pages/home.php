@@ -1,3 +1,13 @@
+  <style type="text/css">
+	    #my_camera{
+			margin: 0 auto;
+		}
+		body { font-family: Helvetica, sans-serif; }
+		h2, h3 { margin-top:0; }
+		form { margin-top: 15px; }
+		form > input { margin-right: 15px; }
+		/*#results { float:right; margin:20px; padding:20px; border:1px solid; background:green; }*/
+	</style>
   <div class="container">
 
   <!--Carousel
@@ -15,25 +25,91 @@
                     <fieldset>
                          <h3>Register Here</h3>
                          
-                         <input class="input-xxlarge" type="text" placeholder="First Name"> 
-                         <input class="input-xxlarge" type="text" placeholder="Last Name"> 
-                         <input class="input-xxlarge" type="text" placeholder="Mobile Number"> 
-                         <input class="input-xxlarge" type="text" placeholder="Email ID"> 
-                         <textarea class="input-xxlarge" rows="2" placeholder="Address 1"></textarea> 
-                         <textarea class="input-xxlarge" rows="2" placeholder="Address 2"></textarea>
-                         <input class="input-xxlarge" type="text" placeholder="Street">  
-                         <input class="input-xxlarge" type="text" placeholder="Province"> 
-                         <input class="input-xxlarge" type="text" placeholder="Country">
-                         <textarea class="input-xxlarge" rows="2" placeholder="Remarks"></textarea> 
+                         <input class="input-xxlarge" id="first_name" type="text" placeholder="First Name"> 
+                         <input class="input-xxlarge" id ="last_name" type="text" placeholder="Last Name"> 
+                         <input class="input-xxlarge" id ="mobile" type="text" placeholder="Mobile Number"> 
+                         <input class="input-xxlarge" id ="email_id" type="text" placeholder="Email ID"> 
+                         <textarea class="input-xxlarge" id ="address_1" rows="2" placeholder="Address 1"></textarea> 
+                         <textarea class="input-xxlarge" id ="address_2" rows="2" placeholder="Address 2"></textarea>
+                         <input class="input-xxlarge" id ="street" type="text" placeholder="Street">  
+                         <input class="input-xxlarge" id ="province" type="text" placeholder="Province"> 
+                         <input class="input-xxlarge" id ="country" type="text" placeholder="Country">
+                         <textarea class="input-xxlarge" id ="remarks" rows="2" placeholder="Remarks"></textarea> 
                         
     
                             <br>
-                         <button type="submit" class="btn">Submit</button>
+                         
                     </fieldset>
                 
                 </span>
 
-                <div class="span6"> <img src="img/slide/slide1.jpg"></div>
+                <div class="span6">
+                <div id="my_camera"></div>
+	
+	<!-- First, include the Webcam.js JavaScript Library -->
+	<script type="text/javascript" src="<?php echo base_url();?>js/webcam.js"></script>
+	
+	<!-- Configure a few settings and attach camera -->
+	<script language="JavaScript">
+		Webcam.set({
+			width: 580,
+			height: 440,
+			image_format: 'jpeg',
+			jpeg_quality: 100
+		});
+		Webcam.attach( '#my_camera' );
+	</script>
+	
+	<!-- A button for taking snaps -->
+
+        <button type="submit" onClick="take_snapshot()" class="btn">Submit</button>
+	
+    </div>
+    
+	
+	<!-- Code to handle taking the snapshot and displaying it locally -->
+	<script language="JavaScript">
+		function take_snapshot() {
+			
+    Webcam.snap(function(data_uri) {
+		//var val = '<img id="base64image" src="'+data_uri+'"/>';
+		//SaveSnap();
+    var data_id = data_uri;
+	SaveSnap(data_id);
+});
+}
+
+function SaveSnap(data_id){
+	//alert("reached here");
+    var file =  data_id;
+	var first_name = $('#first_name').val();
+	var last_name = $('#last_name').val();
+	var mobile = $('#mobile').val();
+	var address_1 = $('#address_1').val();
+	var address_2 = $('#address_2').val();
+	var street = $('#street').val();
+	var province = $('#province').val();
+	var country = $('#country').val();
+	var remarks = $('#remarks').val();
+	
+    var formdata = new FormData();
+	formdata.append('first_name',first_name);
+	formdata.append('last_name',last_name);
+	formdata.append('mobile',mobile);
+	formdata.append('address_1',address_1);
+	formdata.append('address_2',address_2);
+	formdata.append('street',street);
+	formdata.append('province', province);
+	formdata.append('country', country);
+	formdata.append('remarks', remarks);
+    formdata.append("base64image", file);
+    var ajax = new XMLHttpRequest();
+    ajax.addEventListener("load", function(event) { uploadcomplete(event);}, false);
+    ajax.open("POST", "upload.php");
+    ajax.send(formdata);
+}
+	</script>
+                </div>
 				</form>
           </div>
         </div>

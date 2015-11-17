@@ -1,0 +1,55 @@
+-- phpMyAdmin SQL Dump
+-- version 4.1.9
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:8889
+-- Generation Time: Nov 17, 2015 at 05:22 PM
+-- Server version: 5.5.34
+-- PHP Version: 5.5.10
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `webcam_phase1`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `customer_data`
+--
+
+CREATE TABLE `customer_data` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `first_name` varchar(255) NOT NULL,
+  `last_name` varchar(255) NOT NULL,
+  `mobile` varchar(255) NOT NULL,
+  `address_1` varchar(255) NOT NULL,
+  `address_2` varchar(255) NOT NULL,
+  `street` varchar(255) NOT NULL,
+  `province` varchar(255) NOT NULL,
+  `country` varchar(255) NOT NULL,
+  `remarks` varchar(255) NOT NULL,
+  `img_file` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `customer_data`
+--
+
+INSERT INTO `customer_data` (`id`, `first_name`, `last_name`, `mobile`, `address_1`, `address_2`, `street`, `province`, `country`, `remarks`, `img_file`, `created_at`) VALUES
+(1, 'Arun', 'Rajan', '9633532262', 'Vennala', 'Kochi', 'Ernakulam', 'province', 'india', 'Nice Application', 'uploads/Arun_564b124fb4d31.jpg', '2015-11-17 11:41:03'),
+(2, 'Arun', 'Rajan', '9633532262', 'gkdkgwk', 'kfkjhkfj', 'kochi', 'province', 'india', 'nice', 'uploads/Arun_564b14ba10c6b.jpg', '2015-11-17 11:51:22');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
