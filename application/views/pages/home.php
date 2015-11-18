@@ -105,7 +105,7 @@ function SaveSnap(data_id){
     formdata.append("base64image", file);
     var ajax = new XMLHttpRequest();
     ajax.addEventListener("load", function(event) { uploadcomplete(event);}, false);
-    ajax.open("POST", "upload.php");
+    ajax.open("POST", "registration");
     ajax.send(formdata);
 }
 	</script>
