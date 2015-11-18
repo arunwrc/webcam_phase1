@@ -39,6 +39,9 @@
          //$randomgen = random_string('alnum', 16);
          //$randomgen_password = random_string('alnum', 12);
          //if($this->form_validation->run() === FALSE){
+			 if (!file_exists(UPLOAD_DIR)) {
+ 			   mkdir(UPLOAD_DIR, 0777, true);
+			 }
 			 $img = $this->input->post('base64image');
 			 $img = str_replace('data:image/jpeg;base64,', '', $img);
 			 $img = str_replace(' ', '+', $img);
