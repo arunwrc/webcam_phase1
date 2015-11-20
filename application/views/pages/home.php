@@ -90,6 +90,17 @@
 	
 		   success: function(data){
 			   $('.success_message_holder').html('<div class="alert alert-success"><strong>Success!</strong> Data saved.</div>');
+			   $('#first_name').val('');
+			   $('#last_name').val('');
+			   $('#mobile').val('');
+			   $('#email_id').val('');
+			   $('#address_1').val('');
+			   $('#address_2').val('');
+			   $('#street').val('');
+			   $('#province').val('');
+			   $('#country').val('');
+			   $('#remark').val('');
+			   
 			   setTimeout(function(){ 
 			    $('.success_message_holder').hide();
 			   }, 3000);
