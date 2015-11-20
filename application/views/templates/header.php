@@ -11,6 +11,8 @@
     <link href="<?php echo base_url();?>css/bootstrap-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet"> 
     <link href="<?php echo base_url();?>css/overrides.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>css/virtual_keyboard/jquery.ml-keyboard.css" rel="stylesheet">
+    
     
     <!--Font-->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
@@ -36,7 +38,8 @@
     ============================================================-->  
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="<?php echo base_url();?>js/bootstrap.min.js"></script>
-    
+    <script src="<?php echo base_url();?>js/virtual_keyboard/demo.js"></script>
+    <script src="<?php echo base_url();?>js/virtual_keyboard/jquery.ml-keyboard.js"></script>
       
       
   </head>

@@ -24,18 +24,18 @@
                
                     <fieldset>
                     <div class="success_message_holder"></div>
-                         <h3>Register Here</h3>
+                         <h2>New Registration</h2>
                          
                          <input class="input-xxlarge touchinput" id="first_name" type="text" name="first_name" placeholder="First Name" autocomplete="off"> 
                          <input class="input-xxlarge touchinput" id ="last_name" type="text" name="last_name" placeholder="Last Name" autocomplete="off"> 
                          <input class="input-xxlarge touchinput" id ="mobile" type="text" name="mobile" placeholder="Mobile Number"  autocomplete="off"> 
                          <input class="input-xxlarge touchinput" id ="email_id" type="text" name="email_id" placeholder="Email ID"  autocomplete="off"> 
-                         <textarea class="input-xxlarge touchinput" id ="address_1" rows="2" name="address_1" placeholder="Address 1"></textarea> 
-                         <textarea class="input-xxlarge touchinput" id ="address_2" rows="2" name="address_2" placeholder="Address 2"></textarea>
+                         <input class="input-xxlarge touchinput" id ="address_1"  type="text" name="address_1" placeholder="Address 1"  autocomplete="off"> 
+                         <input class="input-xxlarge touchinput" id ="address_2"  type="text" name="address_2" placeholder="Address 2"  autocomplete="off">
                          <input class="input-xxlarge touchinput" id ="street" type="text" name="street" placeholder="Street"  autocomplete="off">  
                          <input class="input-xxlarge touchinput" id ="province" type="text" name="province" placeholder="Province"  autocomplete="off"> 
                          <input class="input-xxlarge touchinput" id ="country" type="text" name="country" placeholder="Country"  autocomplete="off">
-                         <textarea class="input-xxlarge touchinput" id ="remarks" rows="2" name="remarks" placeholder="Remarks"></textarea> 
+                         <input class="input-xxlarge touchinput" id ="remarks"  type="text" name="remarks" placeholder="Remarks"  autocomplete="off">
                         
     
                             <br>
@@ -63,7 +63,7 @@
 	
 	<!-- A button for taking snaps -->
 
-        <button type="submit" class="btn btn-success">Save Data</button>
+        <button type="submit" class="btn btn-success btn-override">Save Data</button>
 	
     </div>
     
@@ -99,7 +99,7 @@
 			   $('#street').val('');
 			   $('#province').val('');
 			   $('#country').val('');
-			   $('#remark').val('');
+			   $('#remarks').val('');
 			   
 			   setTimeout(function(){ 
 			    $('.success_message_holder').hide();
