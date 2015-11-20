@@ -19,22 +19,23 @@
       <div class="active item">
         <div class="container">
           <div class="row">
-              <form>
+              <form class="form-signin" method="post" id="form-signin">
               <span class="span6">
                
                     <fieldset>
+                    <div class="success_message_holder"></div>
                          <h3>Register Here</h3>
                          
-                         <input class="input-xxlarge" id="first_name" type="text" placeholder="First Name"> 
-                         <input class="input-xxlarge" id ="last_name" type="text" placeholder="Last Name"> 
-                         <input class="input-xxlarge" id ="mobile" type="text" placeholder="Mobile Number"> 
-                         <input class="input-xxlarge" id ="email_id" type="text" placeholder="Email ID"> 
-                         <textarea class="input-xxlarge" id ="address_1" rows="2" placeholder="Address 1"></textarea> 
-                         <textarea class="input-xxlarge" id ="address_2" rows="2" placeholder="Address 2"></textarea>
-                         <input class="input-xxlarge" id ="street" type="text" placeholder="Street">  
-                         <input class="input-xxlarge" id ="province" type="text" placeholder="Province"> 
-                         <input class="input-xxlarge" id ="country" type="text" placeholder="Country">
-                         <textarea class="input-xxlarge" id ="remarks" rows="2" placeholder="Remarks"></textarea> 
+                         <input class="input-xxlarge touchinput" id="first_name" type="text" name="first_name" placeholder="First Name" autocomplete="off"> 
+                         <input class="input-xxlarge touchinput" id ="last_name" type="text" name="last_name" placeholder="Last Name" autocomplete="off"> 
+                         <input class="input-xxlarge touchinput" id ="mobile" type="text" name="mobile" placeholder="Mobile Number"  autocomplete="off"> 
+                         <input class="input-xxlarge touchinput" id ="email_id" type="text" name="email_id" placeholder="Email ID"  autocomplete="off"> 
+                         <textarea class="input-xxlarge touchinput" id ="address_1" rows="2" name="address_1" placeholder="Address 1"></textarea> 
+                         <textarea class="input-xxlarge touchinput" id ="address_2" rows="2" name="address_2" placeholder="Address 2"></textarea>
+                         <input class="input-xxlarge touchinput" id ="street" type="text" name="street" placeholder="Street"  autocomplete="off">  
+                         <input class="input-xxlarge touchinput" id ="province" type="text" name="province" placeholder="Province"  autocomplete="off"> 
+                         <input class="input-xxlarge touchinput" id ="country" type="text" name="country" placeholder="Country"  autocomplete="off">
+                         <textarea class="input-xxlarge touchinput" id ="remarks" rows="2" name="remarks" placeholder="Remarks"></textarea> 
                         
     
                             <br>
@@ -62,52 +63,44 @@
 	
 	<!-- A button for taking snaps -->
 
-        <button type="submit" onClick="take_snapshot()" class="btn">Submit</button>
+        <button type="submit" class="btn btn-success">Save Data</button>
 	
     </div>
     
 	
 	<!-- Code to handle taking the snapshot and displaying it locally -->
 	<script language="JavaScript">
-		function take_snapshot() {
+	$(function(){
+	   $("#form-signin").submit(function(){
+		 
+		 
+		 
+		 Webcam.snap(function(data_uri) {
+			var data_id = data_uri;
 			
-    Webcam.snap(function(data_uri) {
-		//var val = '<img id="base64image" src="'+data_uri+'"/>';
-		//SaveSnap();
-    var data_id = data_uri;
-	SaveSnap(data_id);
-});
-}
-
-function SaveSnap(data_id){
-	//alert("reached here");
-    var file =  data_id;
-	var first_name = $('#first_name').val();
-	var last_name = $('#last_name').val();
-	var mobile = $('#mobile').val();
-	var address_1 = $('#address_1').val();
-	var address_2 = $('#address_2').val();
-	var street = $('#street').val();
-	var province = $('#province').val();
-	var country = $('#country').val();
-	var remarks = $('#remarks').val();
+			dataString = $("#form-signin").serialize() + '&base64image=' + data_id //sending image data to controller for posting the value
 	
-    var formdata = new FormData();
-	formdata.append('first_name',first_name);
-	formdata.append('last_name',last_name);
-	formdata.append('mobile',mobile);
-	formdata.append('address_1',address_1);
-	formdata.append('address_2',address_2);
-	formdata.append('street',street);
-	formdata.append('province', province);
-	formdata.append('country', country);
-	formdata.append('remarks', remarks);
-    formdata.append("base64image", file);
-    var ajax = new XMLHttpRequest();
-    ajax.addEventListener("load", function(event) { uploadcomplete(event);}, false);
-    ajax.open("POST", "registration");
-    ajax.send(formdata);
-}
+		 });
+	
+	
+		 $.ajax({
+		   type: "POST",
+		   url: "http://webcam-phase1.local/index.php/register/newregistration",
+		   data: dataString,
+	
+		   success: function(data){
+			   $('.success_message_holder').html('<div class="alert alert-success"><strong>Success!</strong> Data saved.</div>');
+			   setTimeout(function(){ 
+			    $('.success_message_holder').hide();
+			   }, 3000);
+		   }
+	
+		 });
+	
+		 return false;  //stop the actual form post !important!
+	
+	  });
+	});
 	</script>
                 </div>
 				</form>

@@ -5,6 +5,9 @@
      {
          parent::__construct();
          $this->load->model('register_model');
+		 $this->load->helper('form'); 
+		 $this->load->helper('html'); 
+         $this->load->database();
          //$association_count = $this->register_model->countassociation();
          /*if ($association_count > 0) {
              if($this->session->userdata('usertype_id')!=USERTYPE_ADMIN){//prevent direct access without admin privilage
@@ -46,7 +49,10 @@
 			 $img = str_replace('data:image/jpeg;base64,', '', $img);
 			 $img = str_replace(' ', '+', $img);
 			 $data = base64_decode($img);
-			 $file = UPLOAD_DIR . $this->input->post('first_name')._.uniqid() . '.jpg';
+			 
+			$date = new DateTime();
+			$timestamp = $date->getTimestamp();
+			$file = UPLOAD_DIR.$this->input->post('first_name')."_".$timestamp . '.jpg';
 			 $success = file_put_contents($file, $data);
 			 
              $data = array( // inputs to validate
@@ -66,8 +72,9 @@
                  'about' => $this->input->post('about'),
                  'location' => $this->input->post('location')*/
              );
-			 
+			 //print_r($data); exit;
               $this->register_model->add_new($data);
+			
 
          //}
          /*else{ //prepare data array for add and update

@@ -10,6 +10,7 @@
     <link href="<?php echo base_url();?>css/bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/bootstrap-responsive.css" rel="stylesheet">
     <link href="<?php echo base_url();?>css/style.css" rel="stylesheet"> 
+    <link href="<?php echo base_url();?>css/overrides.css" rel="stylesheet"> 
     
     <!--Font-->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600' rel='stylesheet' type='text/css'>
