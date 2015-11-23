@@ -31,9 +31,12 @@
                             <br>
                          
                     </fieldset>
-                
+ 				<div class="system_info"><h3>System Details</h3></div>  <br />                
+                IP Address : <?php $Ip_address; ?><br /><hr />   
+                Operation System : <?php echo $Operation_system;?><br /><hr />
+                Browser : <?php echo $Browser;?>
                 </span>
-
+				
                 <div class="span6">
                 <div id="my_camera"></div>
 	
@@ -87,7 +90,7 @@
 	
 		 $.ajax({
 		   type: "POST",
-		   url: "http://webcam-phase1.local/index.php/register/newregistration",
+		   url: "http://webcam-phase1.local/index.php/Register/registration_action",
 		   data: dataString,
 	
 		   success: function(data){

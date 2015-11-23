@@ -30,7 +30,7 @@
      }*/
 
 
-     public function newregistration(){
+     public function registration_action(){
         //validations rules
          /*$this->form_validation->set_rules('name','Association Name', 'required|max_length[50]|xss_clean');
          $this->form_validation->set_rules('registrationnumber','Registration Number', 'required|max_length[50]|xss_clean');

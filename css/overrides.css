@@ -73,3 +73,11 @@ div#mlkeyboard ul #mlkeyboard-space {
 	overflow: scroll;
 	overflow-x: hidden;
 }
+.system_info{
+	text-align:center;
+	border-bottom:1px solid #efefef; 
+	padding:3px;
+}
+.system_info h3{
+	margin: 0 !important;
+}
