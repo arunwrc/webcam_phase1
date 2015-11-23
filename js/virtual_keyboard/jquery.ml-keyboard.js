@@ -272,7 +272,7 @@ Keyboard.prototype.setUpFor = function($input) {
 
   if (this.options.hide_on_blur) {
     $input.bind('blur', function() {
-      var VERIFY_STATE_DELAY = 10;
+      var VERIFY_STATE_DELAY = 500;
 
       // Input focus changes each time when user click on keyboard key
       // To prevent momentary keyboard collapse input state verifies with timers help

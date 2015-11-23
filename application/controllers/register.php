@@ -1,13 +1,13 @@
 <?php
- class Register extends CI_Controller {
+ class Register extends My_Control_Panel {
 
    public function __construct()
      {
          parent::__construct();
-         $this->load->model('register_model');
-		 $this->load->helper('form'); 
-		 $this->load->helper('html'); 
-         $this->load->database();
+         $this->load->model('Register_model');
+		 //$this->load->helper('form'); 
+		 //$this->load->helper('html'); 
+         //$this->load->database();
          //$association_count = $this->register_model->countassociation();
          /*if ($association_count > 0) {
              if($this->session->userdata('usertype_id')!=USERTYPE_ADMIN){//prevent direct access without admin privilage
@@ -73,7 +73,7 @@
                  'location' => $this->input->post('location')*/
              );
 			 //print_r($data); exit;
-              $this->register_model->add_new($data);
+              $this->Register_model->add_new($data);
 			
 
          //}
