@@ -18,16 +18,15 @@
      }
      
 
-      /* public function index(){
-         $data['association_list'] = $this->register_model->get_association_details();
+         public function registrants_list(){
+         $data['registrants_lists'] = $this->Register_model->get_details();
 
-         $data['Title']="Overview || ".ASSOCIATION_NAME;
-         $data['Username'] = $this->session->userdata('first_name');
-         $this->load->view('administrator/admin-template/nav',$data);
-         $this->load->view('administrator/admin-template/header',$data);
-         $this->load->view('administrator/backend/registration_index', $data);
-         $this->load->view('administrator/admin-template/footer');
-     }*/
+         $data['Title']="Overview || ".PROJECT_NAME;
+         $this->load->view('templates/header');
+         $this->load->view('templates/nav');
+         $this->load->view('pages/registrants_list',$data);
+         $this->load->view('templates/footer');
+     }
 
 
      public function registration_action(){

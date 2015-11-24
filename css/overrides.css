@@ -46,7 +46,7 @@ div#mlkeyboard ul{
 div#mlkeyboard{
 	width: 50% !important;
 	bottom: 50px !important;
-	/*position: absolute !important;*/
+	position: absolute !important;
 }
 
 /*div#mlkeyboard ul li {
@@ -80,4 +80,11 @@ div#mlkeyboard ul #mlkeyboard-space {
 }
 .system_info h3{
 	margin: 0 !important;
+}
+.registrants_img{
+	width:112px;
+	height:85px;
+}
+.registrant_list_tbl td{
+	vertical-align: inherit !important;
 }
