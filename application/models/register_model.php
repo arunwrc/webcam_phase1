@@ -8,13 +8,16 @@
 class Register_model extends CI_Model {
 
     public function get_details(){
-        $query = $this->db->get('customer_data');
+		$this->db->order_by("id", "desc");
+		$query = $this->db->get('customer_data'); 
 		return $query->result();
     }
     public function add_new($data){
         return $this->db->insert('customer_data', $data);
     }
-
+	public function delete($id){
+        $this->db->delete('customer_data', array('id' => $id));
+    }
    
 
 }

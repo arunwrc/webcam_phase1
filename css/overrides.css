@@ -87,4 +87,9 @@ div#mlkeyboard ul #mlkeyboard-space {
 }
 .registrant_list_tbl td{
 	vertical-align: inherit !important;
+	text-align: center !important;
+	font-size: 12px;
+}
+.registrant_list_tbl th{
+	text-align: center !important;
 }

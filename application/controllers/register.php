@@ -138,6 +138,14 @@
          $this->load->view('administrator/backend/registration', $data);
          $this->load->view('administrator/admin-template/footer');
      }*/
+	 public function delete($id){
+
+        if((int)$id>0){
+            $this->Register_model->delete($id);
+        }
+        //$this->session->set_flashdata('message','You have Deleted a record');
+        redirect('registrations', 'refresh');
+    }
 
 
 
